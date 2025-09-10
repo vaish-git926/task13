@@ -1,0 +1,41 @@
+Task 13 – Free Cloud VM Setup and Interaction
+
+Cloud Provider Used:
+Google Cloud Platform (GCP) – Compute Engine
+
+Steps Followed:
+
+1. Created a VM instance in GCP Compute Engine.
+   - Machine Type: e2-micro (Free Tier eligible)
+   - OS: Ubuntu (default image)
+   - Firewall: Allowed SSH (TCP 22) and ICMP (ping) traffic.
+
+2. Obtained the public IP of the VM from the GCP console:
+   VM External IP = 34.63.127.14
+
+3. From my Kali Linux machine, I pinged the VM public IP:
+   Command: ping 34.63.127.14
+   Result: Successful (screenshot1 - ping_from_kali_to_vm.png)
+
+4. I connected to the VM via SSH:
+   Command: ssh krvyshnav095@34.63.127.14
+   Once inside, I ran "ip a" to view the network configuration.
+   Result: Displayed the VM’s internal and external interfaces (screenshot2 - ssh_ip_a_on_vm.png)
+
+5. I checked my Kali machine’s public IP using:
+   Command (on Kali): curl ifconfig.me
+   Result: 106.76.179.168
+
+6. From the VM, I pinged my Kali’s public IP:
+   Command: ping 106.76.179.168
+   Result: Ping attempt shown (screenshot3 - ping_from_vm_to_kali.png)
+
+7. After testing, I shut down the VM using:
+   Command: sudo shutdown now
+   Then deleted the instance from GCP to avoid unnecessary usage.
+
+Files Submitted to GitHub Repository "task13":
+- task13_steps.txt (this file)
+- screenshot1.png (Ping from Kali → VM)
+- screenshot2.png (SSH + ip a inside VM)
+- screenshot3.png (Ping from VM → Kali public IP)
